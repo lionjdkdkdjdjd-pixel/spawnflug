@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "spawnflug",
+  "version": "${version}",
+  "name": "Spawnflug",
+  "description": "Unsichtbarer Elytra-Gleitflug ab Spawn. Endet beim Landen. Serverseitig.",
+  "authors": ["OpenAI – Beispielprojekt"],
+  "license": "MIT",
+  "environment": "server",
+  "entrypoints": {
+    "main": ["de.spawnflug.SpawnflugMod"]
+  },
+  "depends": {
+    "minecraft": "26.3",
+    "fabricloader": ">=0.19.5",
+    "fabric-api": "*",
+    "java": ">=25"
+  }
+}

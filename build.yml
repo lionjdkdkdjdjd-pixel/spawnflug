@@ -1,0 +1,30 @@
+name: Spawnflug 26.3 bauen
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Projekt holen
+        uses: actions/checkout@v4
+      - name: Java 25 einrichten
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - name: Gradle 9.6.1 einrichten
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.6.1'
+      - name: Fabric Mod bauen
+        run: gradle --no-daemon build
+      - name: Fertige JAR bereitstellen
+        uses: actions/upload-artifact@v4
+        with:
+          name: spawnflug-fabric-26.3
+          path: build/libs/spawnflug-fabric-26.3-*.jar
+          if-no-files-found: error
